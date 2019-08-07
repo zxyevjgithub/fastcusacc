@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="log" description="日志配置">
+        <property name="log.file.path" defaultValue="/data/appLogs" description="日志文件路径" required="true"/>
+        <property name="log.file.name" description="日志文件名称"/>
+        <property name="log.level" defaultValue="INFO" description="日志级别">
+            <validator name="choice" choice="TRACE,DEBUG,INFO,WARN,ERROR"/>
+        </property>
+    </group>
+
+    <group name="dubbo" description="dubbo配置">
+        <property name="zookeeper.address" description="zookeeper服务地址"/>
+        <property name="dubbo.port" defaultValue="20880" description="dubbo端口"/>
+    </group>
+
+    <group name="database" description="数据库配置">
+        <property name="database.driver" description="数据库驱动"/>
+        <property name="database.read.url" description="数据库读库地址"/>
+        <property name="database.read.username" description="数据库读库用户名"/>
+        <property name="database.read.password" description="数据库读库密码"/>
+        <property name="database.write.url" description="数据库写库地址"/>
+        <property name="database.write.username" description="数据库写库用户名"/>
+        <property name="database.write.password" description="数据库写库地址"/>
+    </group>
+
+    <group name="redis">
+        <property name="redis.maxActive" />
+        <property name="redis.maxIdle" />
+        <property name="redis.minIdle" />
+        <property name="redis.maxWait" />
+        <property name="redis.numTestsPerEvictionRun" />
+        <property name="redis.testOnBorrow" />
+        <property name="redis.testOnReturn" />
+        <property name="redis.testWhileIdle" />
+        <property name="redis.timeBetweenEvictionRunsMillis" />
+        <property name="redis.softMinEvictableIdleTimeMillis" />
+        <property name="redis.clusterName" />
+        <property name="redis.sentinel.host1" />
+        <property name="redis.sentinel.port1" />
+        <property name="redis.sentinel.host2" />
+        <property name="redis.sentinel.port2" />
+        <property name="redis.sentinel.host3" />
+        <property name="redis.sentinel.port3" />
+        <property name="redis.sentinel.host4" />
+        <property name="redis.sentinel.port4" />
+        <property name="redis.sentinel.host5" />
+        <property name="redis.sentinel.port5" />
+        <property name="redis.db" />
+    </group>
+
+    <group name="kafka">
+        <property name="kafka.bootstrap.servers" />
+        <property name="kafka.topic.name" />
+        <property name="kafka.retries.times" />
+        <property name="kafka.ack.type" />
+        <property name="kafka.consumer.group" />
+
+        <property name="kafka.notify.bootstrap.servers" />
+        <property name="kafka.notify.topic.name" />
+        <property name="kafka.notify.retries.times" />
+        <property name="kafka.notify.ack.type" />
+    </group>
+
+    <group name="elasticJob">
+        <property name="elasticJob.zkLock.url" />
+        <property name="elasticJob.disabled" />
+        <property name="elasticJob.hikari.dataSource.url" />
+    </group>
+
+    <script>
+        <generate template="/WEB-INF/classes/logback.xml"/>
+        <!--<generate template="/WEB-INF/classes/dao/persistence-read-config.xml"/>-->
+        <generate template="/WEB-INF/classes/dao/persistence-write-config.xml"/>
+        <generate template="/WEB-INF/classes/dubbo/dubbo-config.xml"/>
+        <generate template="/WEB-INF/classes/properties/config.properties"/>
+        <generate template="/WEB-INF/classes/mq/kafka-producer.xml"/>
+        <generate template="/WEB-INF/classes/mq/kafka-consumer.xml"/>
+        <generate template="/WEB-INF/classes/redis/redis.xml"/>
+        <generate template="/WEB-INF/classes/properties/elastic-job.xml" />
+    </script>
+</config>

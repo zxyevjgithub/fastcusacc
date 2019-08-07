@@ -12,21 +12,357 @@
         <module>cusaccc-api</module>
         <module>cusacc-service</module>
         <module>cusacc-main</module>
+        <module>cusacc-web</module>
+        <module>cusacc-wweb</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.6</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-core</artifactId>
-            <version>5.1.3.RELEASE</version>
-        </dependency>
-    </dependencies>
+    <!-- jar包版本管理 -->
+    <properties>
+        <!-- 定义项目编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>4.3.11.RELEASE</spring.version>
+        <runtime.version>1.8</runtime.version>
+        <autoconfig-plugin-version>1.2</autoconfig-plugin-version>
+        <maven-compiler.version>3.1</maven-compiler.version>
+        <commons.version>3.0.0</commons.version>
+        <bestpay-logback.version>1.3.0</bestpay-logback.version>
+        <lombok.version>1.16.6</lombok.version>
+        <slf4j-api.version>1.7.5</slf4j-api.version>
+        <guava.version>16.0.1</guava.version>
+        <mybatis.version>3.2.1</mybatis.version>
+        <mybatis-spring.version>1.2.0</mybatis-spring.version>
+        <pagehelper.version>4.1.4</pagehelper.version>
+        <mybatis-generator-core.version>1.3.2</mybatis-generator-core.version>
+        <mysql-connector-java.version>5.1.29</mysql-connector-java.version>
+        <druid.version>1.0.11</druid.version>
+        <spring-jdbc.version>4.3.11.RELEASE</spring-jdbc.version>
+        <dubbo.version>2.5.3</dubbo.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <zkclient.version>0.8</zkclient.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <cglib.version>2.2.2</cglib.version>
+        <junit.version>4.12</junit.version>
+        <fastjson.version>1.2.8.sec01</fastjson.version>
+        <commons-lang3.version>3.1</commons-lang3.version>
+        <spring.data.redis.version>1.8.0.RELEASE</spring.data.redis.version>
+        <jedis.version>2.9.0</jedis.version>
+        <elastic.job.lite.core.version>2.1.5.1</elastic.job.lite.core.version>
+        <elastic.job.lite.spring.version>2.1.5.1</elastic.job.lite.spring.version>
+        <joda.time.version>2.7</joda.time.version>
+        <oval.version>1.81</oval.version>
+        <mockito.version>1.8.5</mockito.version>
+        <clp-publicservice.version>1.1.0-SNAPSHOT</clp-publicservice.version>
+        <clp-customercore.version>1.2.0</clp-customercore.version>
+        <clp-repayplan.version>1.4.0-SNAPSHOT</clp-repayplan.version>
+        <personalfin.channel.api.version>1.0.52-SNAPSHOT</personalfin.channel.api.version>
+        <clp-capitalcore-api.version>1.2.0</clp-capitalcore-api.version>
+    </properties>
+
+    <!-- 项目jar包依赖统一管理 -->
+        <dependencies>
+            <!-- 应用依赖信息声明 -->
+
+            <!-- spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- bestpay -->
+            <dependency>
+                <groupId>cn.com.bestpay</groupId>
+                <artifactId>commons</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bestpay</groupId>
+                <artifactId>commons</artifactId>
+                <version>1.1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bestpay</groupId>
+                <artifactId>bestpay-logback</artifactId>
+                <version>${bestpay-logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.bestpay.clp</groupId>
+                <artifactId>clp-publicservice-api</artifactId>
+                <version>${clp-publicservice.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bestpay.clp</groupId>
+                <artifactId>clp-customercore-api</artifactId>
+                <version>${clp-customercore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bestpay.clp</groupId>
+                <artifactId>clp-repayplan-api</artifactId>
+                <version>${clp-repayplan.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>personalfin-channel-api</artifactId>
+                <groupId>com.bestpay.personalfin</groupId>
+                <version>${personalfin.channel.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.bestpay.clp</groupId>
+                <artifactId>clp-capitalcore-api</artifactId>
+                <version>${clp-capitalcore-api.version}</version>
+            </dependency>
 
 
+
+            <!--分布式调度任务-->
+            <dependency>
+                <groupId>com.bestpay</groupId>
+                <artifactId>elastic-job-lite-core</artifactId>
+                <version>${elastic.job.lite.core.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>zookeeper</artifactId>
+                        <groupId>org.apache.zookeeper</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>slf4j-api</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>log4j</artifactId>
+                        <groupId>log4j</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-classic</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>guava</artifactId>
+                        <groupId>com.google.guava</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.bestpay</groupId>
+                <artifactId>elastic-job-lite-spring</artifactId>
+                <version>${elastic.job.lite.spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.curator</groupId>
+                        <artifactId>curator-framework</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.curator</groupId>
+                        <artifactId>curator-recipes</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+
+            <!-- tools -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis-generator-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring-jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>1.3.0.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${spring.data.redis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
+
+
+
+            <!-- dozer -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda.time.version}</version>
+            </dependency>
+
+            <!--  validate -->
+            <dependency>
+                <groupId>net.sf.oval</groupId>
+                <artifactId>oval</artifactId>
+                <version>${oval.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>4.0.0-RC1</version>
+            </dependency>
+
+            <!-- for spring namespace -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-namespace</artifactId>
+                <version>4.0.0-RC1</version>
+            </dependency>
+        </dependencies>
+
+
+
+    <build>
+        <plugins>
+            <!-- 编译信息定义 -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <configuration>
+                    <source>${runtime.version}</source>
+                    <target>${runtime.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <version>${maven-compiler.version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <version>2.6</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
