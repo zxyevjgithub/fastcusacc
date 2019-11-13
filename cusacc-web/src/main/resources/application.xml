@@ -17,5 +17,7 @@
     <tx:annotation-driven/>
 
 
+    <import resource="config.xml"></import>
+
 
 </beans>

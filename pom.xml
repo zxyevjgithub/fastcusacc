@@ -13,7 +13,7 @@
         <module>cusacc-service</module>
         <module>cusacc-main</module>
         <module>cusacc-web</module>
-        <module>cusacc-wweb</module>
+
     </modules>
 
 
@@ -21,7 +21,7 @@
     <properties>
         <!-- 定义项目编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.11.RELEASE</spring.version>
+        <spring.version>5.1.6.RELEASE</spring.version>
         <runtime.version>1.8</runtime.version>
         <autoconfig-plugin-version>1.2</autoconfig-plugin-version>
         <maven-compiler.version>3.1</maven-compiler.version>
@@ -55,8 +55,26 @@
     </properties>
 
     <!-- 项目jar包依赖统一管理 -->
+    <dependencyManagement>
         <dependencies>
             <!-- 应用依赖信息声明 -->
+
+            <dependency>
+                <groupId>com.fuckingjava</groupId>
+                <artifactId>cusacc-main</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fuckingjava</groupId>
+                <artifactId>cusacc-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fuckingjava</groupId>
+                <artifactId>cusaccc-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
 
             <!-- spring -->
             <dependency>
@@ -239,7 +257,7 @@
                 <version>4.0.0-RC1</version>
             </dependency>
         </dependencies>
-
+    </dependencyManagement>
 
 
     <build>
