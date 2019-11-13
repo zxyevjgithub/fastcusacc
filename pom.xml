@@ -52,11 +52,6 @@
         <joda.time.version>2.7</joda.time.version>
         <oval.version>1.81</oval.version>
         <mockito.version>1.8.5</mockito.version>
-        <clp-publicservice.version>1.1.0-SNAPSHOT</clp-publicservice.version>
-        <clp-customercore.version>1.2.0</clp-customercore.version>
-        <clp-repayplan.version>1.4.0-SNAPSHOT</clp-repayplan.version>
-        <personalfin.channel.api.version>1.0.52-SNAPSHOT</personalfin.channel.api.version>
-        <clp-capitalcore-api.version>1.2.0</clp-capitalcore-api.version>
     </properties>
 
     <!-- 项目jar包依赖统一管理 -->
@@ -90,103 +85,7 @@
                 <version>${spring.version}</version>
             </dependency>
 
-            <!-- bestpay -->
-            <dependency>
-                <groupId>cn.com.bestpay</groupId>
-                <artifactId>commons</artifactId>
-                <version>${commons.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.bestpay</groupId>
-                <artifactId>commons</artifactId>
-                <version>1.1.4</version>
-            </dependency>
-            <dependency>
-                <groupId>com.bestpay</groupId>
-                <artifactId>bestpay-logback</artifactId>
-                <version>${bestpay-logback.version}</version>
-            </dependency>
 
-            <dependency>
-                <groupId>com.bestpay.clp</groupId>
-                <artifactId>clp-publicservice-api</artifactId>
-                <version>${clp-publicservice.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.bestpay.clp</groupId>
-                <artifactId>clp-customercore-api</artifactId>
-                <version>${clp-customercore.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.bestpay.clp</groupId>
-                <artifactId>clp-repayplan-api</artifactId>
-                <version>${clp-repayplan.version}</version>
-            </dependency>
-            <dependency>
-                <artifactId>personalfin-channel-api</artifactId>
-                <groupId>com.bestpay.personalfin</groupId>
-                <version>${personalfin.channel.api.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.bestpay.clp</groupId>
-                <artifactId>clp-capitalcore-api</artifactId>
-                <version>${clp-capitalcore-api.version}</version>
-            </dependency>
-
-
-
-            <!--分布式调度任务-->
-            <dependency>
-                <groupId>com.bestpay</groupId>
-                <artifactId>elastic-job-lite-core</artifactId>
-                <version>${elastic.job.lite.core.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>zookeeper</artifactId>
-                        <groupId>org.apache.zookeeper</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>slf4j-api</artifactId>
-                        <groupId>org.slf4j</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>log4j</artifactId>
-                        <groupId>log4j</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>ch.qos.logback</groupId>
-                        <artifactId>logback-classic</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>guava</artifactId>
-                        <groupId>com.google.guava</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.bestpay</groupId>
-                <artifactId>elastic-job-lite-spring</artifactId>
-                <version>${elastic.job.lite.spring.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.curator</groupId>
-                        <artifactId>curator-framework</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.curator</groupId>
-                        <artifactId>curator-recipes</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
 
 
             <!-- tools -->

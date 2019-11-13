@@ -18,17 +18,17 @@ public class BaseReq implements Serializable {
         //交易码- root节点
         private String trcode;
 
-        //发起机构
+        //归属机构
         private String br;
 
-
+        //金额
         private Long amt;
 
-
+        //币种
         private String ccy;
 
-        //交易的发起人
-        private String tlr;
+        //请求系统
+        private String reqSys;
 
 
 }

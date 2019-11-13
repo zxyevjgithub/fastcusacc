@@ -7,11 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cusacc-wweb" />
         <module name="cusaccc-web" />
+        <module name="cusacc-service" />
         <module name="cusacccapi" />
+        <module name="cusaccc-api" />
         <module name="cusaccmain" />
-        <module name="cusaccservice" />
+        <module name="cusacc-main" />
         <module name="cusaccwweb" />
+        <module name="cusaccservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
