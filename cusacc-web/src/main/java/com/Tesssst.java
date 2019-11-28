@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+
 /**
  * @author devdws
  * @version Id: Tesssst.java, v 0.1  2019/8/1 12:57 devdws Exp $$
@@ -15,8 +17,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class Tesssst {
 
     @Test
-      public void  ddd(){
+    public void  ddd(){
         System.out.println(333);
-      }
+
+    }
+
 
 }

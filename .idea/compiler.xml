@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cusaccc-web" />
-        <module name="cusacc-service" />
+        <module name="cusaccservice" />
         <module name="cusacccapi" />
+        <module name="cusacc-service" />
         <module name="cusaccc-api" />
+        <module name="cusaccwweb" />
         <module name="cusaccmain" />
         <module name="cusacc-main" />
-        <module name="cusaccwweb" />
-        <module name="cusaccservice" />
+        <module name="cusaccc-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="cusacc-wweb" target="1.8" />
-      <module name="web" target="1.5" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="12" />
   </component>
 </project>
