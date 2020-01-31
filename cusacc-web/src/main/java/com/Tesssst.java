@@ -1,8 +1,11 @@
 package com;
 
+import com.model.CommReq;
+import com.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
@@ -14,9 +17,24 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @Slf4j
 public class Tesssst {
 
-    @Test
+     @Autowired
+     com.service.AccountService AccountService;
+
+      @Test
       public void  ddd(){
         System.out.println(333);
+      }
+
+      @Test
+      public void dddf(){
+          AccountService.doAccount( new CommReq());
+
+      }
+
+      class Node{
+         private String time;
+         private String dd;
+
       }
 
 }

@@ -1,8 +1,11 @@
 package com.service;
 
 import com.api.AccountCommonAPI;
+import com.biz.AccountProcessHandler;
+import com.model.BaseReq;
 import com.model.CommReq;
 import com.model.CommRes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /**
  * @author devdws
@@ -11,8 +14,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountService implements AccountCommonAPI {
 
-    public CommRes doAccount(CommReq commReq) {
+    @Autowired
+    AccountProcessHandler accountProcessHandler;
 
-        return null;
+    public CommRes doAccount(CommReq commReq) {
+        return accountProcessHandler.genVchProcess(commReq);
     }
 }

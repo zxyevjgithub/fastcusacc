@@ -8,6 +8,5 @@ import com.model.CommRes;
  */
 public interface AccountCommonAPI {
 
-
     CommRes doAccount(CommReq commReq);
 }
