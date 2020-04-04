@@ -2,7 +2,9 @@ package com.biz;
 
 import com.model.CommReq;
 import com.model.CommRes;
-import org.apache.kafka.common.protocol.types.Field;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,10 +16,14 @@ import java.util.List;
  * @author devdws
  * @version Id: AccountProcessHandler.java, v 0.1  2019/7/23 18:50 devdws Exp $$
  */
-@Service
+
+@Slf4j
+@Component
+
 public class AccountProcessHandler  {
 
-     //因子权重
+
+    //因子权重
      private HashMap<String,Integer> factorWeMap = new HashMap<>();
 
      //交易码 - 交易BO映射
@@ -32,6 +38,9 @@ public class AccountProcessHandler  {
      }
 
      public CommRes genVchProcess(CommReq commReq) {
+
+
+         log.info("ffff {}",factorWeMap);
           //根据会计因子内存 根节点匹配分录
           TradeAccountFactorBO tradeAccountFactorBO = getTradeScore(commReq);
 
@@ -39,7 +48,7 @@ public class AccountProcessHandler  {
           List<String> vch = vchMap.get(tradeAccountFactorBO.getScore());
 
           //根据分录 循环填写传票
-          ArrayList<VchBO> vchs = new ArrayList<>();
+          List<VchBO> vchs = new ArrayList<>();
           for (String s : vch) {
                VchBO vchBO = doResolvVch(s);
                vchs.add(vchBO);
