@@ -21,7 +21,7 @@
     <properties>
         <!-- 定义项目编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.1.6.RELEASE</spring.version>
+        <spring.version>5.2.5.RELEASE</spring.version>
         <runtime.version>1.8</runtime.version>
         <autoconfig-plugin-version>1.2</autoconfig-plugin-version>
         <maven-compiler.version>3.1</maven-compiler.version>
