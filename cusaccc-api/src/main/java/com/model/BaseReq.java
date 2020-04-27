@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.Map;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -21,14 +22,13 @@ public class BaseReq implements Serializable {
         //归属机构
         private String br;
 
-        //金额
-        private Long amt;
-
-        //币种
-        private String ccy;
-
         //请求系统
         private String reqSys;
+
+        /**
+         * 账户，账户属性 内部户，客户账户
+         */
+        private Map<String,AccountBO> accountList;
 
 
 }

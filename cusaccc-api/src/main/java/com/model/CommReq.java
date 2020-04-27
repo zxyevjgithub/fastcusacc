@@ -1,8 +1,7 @@
 package com.model;
 
+import java.util.Map;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 /**
  * @author devdws
  * @version Id: CommReq.java, v 0.1  2019/7/23 18:00 devdws Exp $$
@@ -11,6 +10,7 @@ import lombok.Setter;
 @Data
 public class CommReq extends BaseReq {
 
-    private Boolean isCash ;
+    private Boolean isCash;
+
 
 }

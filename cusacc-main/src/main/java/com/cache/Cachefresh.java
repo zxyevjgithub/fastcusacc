@@ -44,6 +44,7 @@ public class Cachefresh {
     public static class AccountItemCacheLoader extends CacheLoader<String, CacheBO> {
 
 
+        @Override
         public CacheBO load(String s) throws Exception {
             return null;
         }

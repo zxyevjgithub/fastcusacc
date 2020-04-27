@@ -1,15 +1,10 @@
 package com.biz;
 
-import static java.lang.Thread.sleep;
-
 import com.method.GenVchpRrocess;
 import com.method.SelectAccModelProcess;
 import com.model.AccountMainMode;
 import com.model.CommReq;
 import com.model.CommRes;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import lombok.extern.slf4j.Slf4j;
@@ -18,16 +13,16 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * --------------------- 计算1：交易码+ 因子权重 -> 会计分录
+ * 计算1：交易码+ 因子权重 -> 会计分录
  * 计算2：根据分录模型  -> 流水
  *
  * @author devdws
- * @version Id: AccountProcessHandler.java, v 0.1  2019/7/23 18:50 devdws Exp $$
+ * @version Id: AccountProcessHandler2.java, v 0.1  2019/7/23 18:50 devdws Exp $$
  */
 
 @Slf4j
 @Component
-public class AccountProcessHandler {
+public class AccountProcessHandler2 {
 
   @Autowired
   ApolloConfig apolloConfig;
@@ -46,13 +41,11 @@ public class AccountProcessHandler {
     AccountMainMode accountMainMode = new AccountMainMode();
     accountMainMode.setFactors(tradeAccountFactorBO.getFactors());
     accountMainMode.setTrcode(tradeAccountFactorBO.getTrcode());
-
-    //获取因子得分
     CompletableFuture<AccountMainMode> future = CompletableFuture
         .completedFuture(accountMainMode)
         .thenApplyAsync(accountMainMode1 -> selectAccModelProcess.doProcess(accountMainMode1, selectAccModelProcess.getName()))
         .thenApplyAsync(accountMainMode1 -> genVchpRrocess.doProcess(accountMainMode1,genVchpRrocess.getName()));
-
+        
     try {
          AccountMainMode accountMainMode2 = future.get();
 

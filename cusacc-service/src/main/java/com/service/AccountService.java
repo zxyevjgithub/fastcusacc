@@ -18,14 +18,9 @@ public class AccountService implements AccountCommonAPI {
     @Autowired
     AccountProcessHandler accountProcessHandler;
 
+    @Override
     public CommRes doAccount(CommReq commReq) {
         return accountProcessHandler.genVchProcess(commReq);
     }
 
-
-    public static void main(String[] args) {
-
-        System.out.println("ff");
-
-    }
 }

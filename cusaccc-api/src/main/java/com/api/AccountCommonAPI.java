@@ -8,5 +8,12 @@ import com.model.CommRes;
  */
 public interface AccountCommonAPI {
 
+    /**
+     * 生成传票
+     * @param commReq
+     * @return
+     */
     CommRes doAccount(CommReq commReq);
+
+
 }
