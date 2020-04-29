@@ -6,12 +6,8 @@
 
     <bean id="config" class="com.cache.Cachefresh" ></bean>
 
-    <bean id="factorWeMap" class="java.util.HashMap">
-        <constructor-arg>
-            <map>
-                <entry key="cash" value="12"></entry>
-            </map>
-        </constructor-arg>
+    <bean id="ApolloConfig" class="com.biz.ApolloConfig">
+
     </bean>
 
     <bean id="handler" class="com.biz.AccountProcessHandler" >

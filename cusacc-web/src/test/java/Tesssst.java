@@ -1,8 +1,4 @@
-package com;
-
-import com.method.Process1;
 import com.model.CommReq;
-import com.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,9 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @version Id: Tesssst.java, v 0.1  2019/8/1 12:57 devdws Exp $$
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:application.xml"})
+@ContextConfiguration(locations = {"classpath:a.xml"})
 @Slf4j
-public class Tesssst {
+public class  Tesssst {
 
      @Autowired
      com.service.AccountService AccountService;

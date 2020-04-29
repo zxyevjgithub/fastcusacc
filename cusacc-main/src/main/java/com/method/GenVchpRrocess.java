@@ -8,6 +8,8 @@ import java.util.List;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 根据分录生成流水
@@ -25,7 +27,7 @@ public class GenVchpRrocess implements ProcessFunction<AccountMainMode> {
    @Autowired
    ApolloConfig apolloConfig;
 
-
+  // @Transactional(propagation = Propagation.REQUIRED, rollbackFor = { Throwable.class })
    @Override
    public <K extends AccountMainMode> K doProcess(K k, String processName) {
       List<VchBO> vchs = new ArrayList<>();

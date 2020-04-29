@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -33,30 +34,10 @@ public class AccountProcessHandler2 {
   @Autowired
   GenVchpRrocess genVchpRrocess;
 
+  @Transactional
   public CommRes genVchProcess(CommReq commReq) {
 
-    log.info("factorWeMap {}", apolloConfig);
-    //根据会计因子内存 根节点匹配分录
-    TradeAccountFactorBO tradeAccountFactorBO = apolloConfig.getFactorBOMap().get(commReq.getTrcode());
-    AccountMainMode accountMainMode = new AccountMainMode();
-    accountMainMode.setFactors(tradeAccountFactorBO.getFactors());
-    accountMainMode.setTrcode(tradeAccountFactorBO.getTrcode());
-    CompletableFuture<AccountMainMode> future = CompletableFuture
-        .completedFuture(accountMainMode)
-        .thenApplyAsync(accountMainMode1 -> selectAccModelProcess.doProcess(accountMainMode1, selectAccModelProcess.getName()))
-        .thenApplyAsync(accountMainMode1 -> genVchpRrocess.doProcess(accountMainMode1,genVchpRrocess.getName()));
-        
-    try {
-         AccountMainMode accountMainMode2 = future.get();
-
-    } catch (InterruptedException | ExecutionException e) {
-      e.printStackTrace();
-    }
-    CommRes commRes = new CommRes();
-    commRes.setVchNo(accountMainMode.getVchBOS().get(0).getVchNo());
-    commRes.setAcDate(accountMainMode.getVchBOS().get(0).getAcDate());
-    //根据传票的分类 异步跟新数据库
-    return commRes ;
+    return null;
   }
 
 
