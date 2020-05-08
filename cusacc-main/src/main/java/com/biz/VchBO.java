@@ -40,15 +40,16 @@ public class VchBO {
      private String tlr;
 
       /**
-      *
+      * 顶级科目
       */
       private Integer  topItm;
       /**
-      *
+      *二级科目
       */
       private Integer  middleItm;
       /**
       *
+       * 三级序号
         */
       private Integer  lowItm;
 }

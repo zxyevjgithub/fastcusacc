@@ -12,6 +12,10 @@ import lombok.Data;
 @Data
 public class AccountMainMode {
 
+    /**
+     * 阶段
+     */
+    volatile PhaseEnum phaseEnum;
 
   private String trcode;
 
@@ -32,4 +36,6 @@ public class AccountMainMode {
    * 生成好的分录
    */
   private List<VchBO> vchBOS;
+
+
 }
