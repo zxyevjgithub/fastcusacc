@@ -33,9 +33,9 @@ public class SelectAccModelProcess implements ProcessFunction<AccountMainMode> {
 
       //根据交易填写的因子跟配置因子计算总得分
       int sc = 0;
-      for(String f : k.getFactors()){
-         sc += apolloConfig.getFactorWeMap().get(f);
-      }
+//      for(String f : k.getFactors()){
+//         sc += apolloConfig.getFactorWeMap().get(f);
+//      }
       //根据总分寻找对于的分录
       List<String> vch = apolloConfig.getVchMap().get(sc);
       k.setScore(sc);

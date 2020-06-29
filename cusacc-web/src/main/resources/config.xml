@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
     <bean id="config" class="com.cache.Cachefresh" ></bean>
 
-    <bean id="ApolloConfig" class="com.biz.ApolloConfig">
 
-    </bean>
+    <util:map id="factored" >
+        <entry key="0021100" value-type="java.util.List" value="332332,323232">
+        </entry>
+    </util:map>
 
-    <bean id="handler" class="com.biz.AccountProcessHandler" >
-    </bean>
+    <!-- 第一个因子是转现标志-->
+    <util:map id="factorName" >
+        <entry key="1"  value="cash">
+        </entry>
+    </util:map>
+
+
+    <!-- 第一个因子是转现标志-->
+    <util:map id="vchMap" >
+        <entry key="1"  value="cash">
+        </entry>
+    </util:map>
 </beans>

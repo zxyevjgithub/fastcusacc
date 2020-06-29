@@ -32,15 +32,16 @@ public class Cachefresh {
     public static  void fresh() {
 
 
+    }
+
+    public void init(){
+
         LoadingCache<String, CacheBO> build = CacheBuilder.newBuilder()
                 .concurrencyLevel(8)
                 .initialCapacity(10)
                 .maximumSize(10000)
                 .build(new AccountItemCacheLoader());
-
     }
-
-
     public static class AccountItemCacheLoader extends CacheLoader<String, CacheBO> {
 
 

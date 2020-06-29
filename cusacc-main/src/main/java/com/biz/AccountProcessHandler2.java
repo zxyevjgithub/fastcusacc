@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import sun.misc.Contended;
 
 
 /**
@@ -45,11 +46,12 @@ public class AccountProcessHandler2 {
   BossWorkerStatar bossWorkerStatar;
 
 
-
+  @Transactional
   public CommRes genVchProcess(CommReq commReq) {
     //
 
-    TradeAccountFactorBO tradeAccountFactorBO = apolloConfig.getFactorBOMap().get(commReq.getTrcode());
+    //List<Integer> integers = apolloConfig.getFactorBOMap().get(commReq.getTrcode());
+    TradeAccountFactorBO tradeAccountFactorBO = new TradeAccountFactorBO();
     AccountMainMode accountMainMode = new AccountMainMode();
     accountMainMode.setFactors(tradeAccountFactorBO.getFactors());
     accountMainMode.setTrcode(tradeAccountFactorBO.getTrcode());
@@ -66,6 +68,7 @@ public class AccountProcessHandler2 {
   }
 
   @Data
+  @Contended
   class AccountEvent implements Callable<AccountMainMode> {
 
     private AccountMainMode accountMainMode;
