@@ -3,6 +3,8 @@ package com.biz;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import lombok.Data;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
@@ -40,14 +42,14 @@ public class ApolloConfig {
    */
 
   @Resource( name = "factored")
-  private HashMap<String,List<Integer>> factored = new HashMap<>();
+  private Map<String,List<Integer>> factored = new HashMap<>();
 
   /**
    *
    * bitmap 的位置和 因子name的映射
    */
   @Resource( name = "factorName")
-  private HashMap<Integer,String> factorName = new HashMap<>();
+  private Map<Integer,String> factorName = new HashMap<>();
 
 
   /**
@@ -69,6 +71,6 @@ public class ApolloConfig {
    */
   //@Value("${vchMap}")
   @Resource( name = "vchMap")
-  private HashMap<Integer, List<String>> vchMap = new HashMap<>();
+  private Map<Integer, List<String>> vchMap = new HashMap<>();
 
 }

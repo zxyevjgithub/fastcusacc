@@ -8,6 +8,7 @@ import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.core.Ordered;
 
 public class LogAnnotationAdvisor extends AbstractPointcutAdvisor implements BeanFactoryAware {
 
@@ -48,4 +49,8 @@ public class LogAnnotationAdvisor extends AbstractPointcutAdvisor implements Bea
         return result;
     }
 
+//    @Override
+//    public int getOrder() {
+//        return Ordered.LOWEST_PRECEDENCE;
+//    }
 }

@@ -8,13 +8,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cusaccwweb" />
         <module name="cusaccc-web" />
+        <module name="cusacccapi" />
         <module name="cusacc-service" />
         <module name="cusaccc-api" />
-        <module name="cusacccapi" />
         <module name="cusaccmain" />
         <module name="cusacc-main" />
+        <module name="cusaccwweb" />
         <module name="cusaccservice" />
       </profile>
     </annotationProcessing>

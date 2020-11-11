@@ -40,6 +40,7 @@ public class AccountProcessHandler {
   @Autowired
   GenVchpRrocess genVchpRrocess;
 
+  @Transactional
   @Atlog(adviceType = "ar",filds = "dddd")
   public CommRes genVchProcess(CommReq commReq) {
 
