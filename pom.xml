@@ -34,7 +34,7 @@
         <mybatis-spring.version>1.2.0</mybatis-spring.version>
         <pagehelper.version>4.1.4</pagehelper.version>
         <mybatis-generator-core.version>1.3.2</mybatis-generator-core.version>
-        <mysql-connector-java.version>5.1.29</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
         <druid.version>1.0.11</druid.version>
         <spring-jdbc.version>5.1.6.RELEASE</spring-jdbc.version>
         <dubbo.version>2.5.3</dubbo.version>
